@@ -1,0 +1,77 @@
+﻿@model IEnumerable<Inventario.Models.producto>
+
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+</head>
+<body>
+    <p>
+        @Html.ActionLink("Create New", "Create")
+    </p>
+    <table class="table">
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.nombre_producto)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.descripcion)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.precio)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad_min)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.cantidad_max)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.proveedor1.nombre)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.tipo_producto1.categoria)
+            </th>
+            <th></th>
+        </tr>
+    
+    @foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.nombre_producto)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.descripcion)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.precio)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad_min)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.cantidad_max)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.proveedor1.nombre)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.tipo_producto1.categoria)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id=item.codigo }) |
+                @Html.ActionLink("Details", "Details", new { id=item.codigo }) |
+                @Html.ActionLink("Delete", "Delete", new { id=item.codigo })
+            </td>
+        </tr>
+    }
+    
+    </table>
+</body>
+</html>
